@@ -1,0 +1,6 @@
+.image-banner {
+  backdrop-filter: blur(50px);
+  background-position: center;
+  background-image: url("https://static.tvmaze.com/uploads/images/original_untouched/425/1064746.jpg");
+  /* background-image: "https://static.tvmaze.com/uploads/images/original_untouched/425/1064746.jpg"; */
+}
