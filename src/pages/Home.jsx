@@ -1,13 +1,20 @@
 import { React, useEffect, useState } from "react";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { selectMovie } from "../Slice";
+import { Link } from "react-router-dom";
 function Home() {
+  // const dispatch = useDispatch();
+  // function handleMovieClick(movie) {
+  //   dispatch(selectMovie(movie));
+  // }
   const [movieList, setMovieList] = useState([]);
   useEffect(() => {
     axios
       .get(" https://api.tvmaze.com/search/shows?q=all")
       .then((response) => {
         setMovieList(response.data);
-        console.log(movieList);
+        console.log(response.data);
       })
       .catch((error) => {
         console.error(error);
@@ -27,15 +34,20 @@ function Home() {
           {movieList.map((movie) => {
             // console.log(movie.show.averageRuntime);
             return (
-              <div key={movie.show.id}>
-                <img src={movie.show.image.medium} alt="movie poster" />
-                <p>{movie.show.name}</p>
-                <div>
-                  {movie.show.genres.map((genre) => {
-                    return <span>{genre}/</span>;
-                  })}
+              <Link to={`bookmovie/${movie.show.id}`}>
+                <div
+                  key={movie.show.id}
+                  // onClick={() => handleMovieClick(movie)}
+                >
+                  <img src={movie.show.image.medium} alt="movie poster" />
+                  <p>{movie.show.name}</p>
+                  <div>
+                    {movie.show.genres.map((genre) => {
+                      return <span>{genre}/</span>;
+                    })}
+                  </div>
                 </div>
-              </div>
+              </Link>
             );
           })}
         </div>
