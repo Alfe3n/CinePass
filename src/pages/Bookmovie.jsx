@@ -24,19 +24,26 @@ function Bookmovie() {
   }, []);
   console.log(ticketCount);
   return (
-    <div className="flex items-center justify-center bookmovie-page-container">
+    <div className="flex items-center justify-start bookmovie-page-container">
       {movie ? (
         <div className="content-container">
           <div
-            style={{
-              backgroundImage: `url(${movie.image.original})`,
-            }}
+            className="image-banner"
+            style={
+              {
+                background: `url(${movie.image.original})`,
+              }
+              //   { filter: "blur(8px)" })
+            }
           >
-            <div className="flex items-center justify-evenly">
-              <img src={movie.image.medium} className="h-1/2"></img>
-              <div className="flex flex-col text-white gap-y-4">
+            <div className="flex items-center justify-start gap-x-16">
+              <img
+                src={movie.image.medium}
+                className="z-10 p-16 rounded-xl"
+              ></img>
+              <div className="z-10 flex flex-col text-white gap-y-4">
                 <p className="text-4xl font-bold text-b4">{movie.name}</p>
-                <p className="text-xl font-semibold text-b3">
+                <p className="z-10 text-xl font-semibold text-b3">
                   {movie.language}
                 </p>
                 <p className="font-semibold text-b3">{`Ratings:${movie.rating.average}`}</p>

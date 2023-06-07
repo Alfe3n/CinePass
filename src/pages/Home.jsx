@@ -45,15 +45,18 @@ function Home() {
               {movieList.map((movie) => {
                 return (
                   <SwiperSlide
-                    className="mix-blend-overlay"
+                    className="image-banner"
                     style={{
                       backgroundImage: `url(${movie.show.image.original})`,
                     }}
                   >
                     <Link to={`bookmovie/${movie.show.id}`}>
-                      <div className="flex items-center justify-around ">
-                        <img src={movie.show.image.medium}></img>
-                        <p className="text-4xl font-bold text-white">
+                      <div className="flex items-center justify-evenly ">
+                        <img
+                          src={movie.show.image.medium}
+                          className="z-10 p-16"
+                        ></img>
+                        <p className="z-10 text-6xl font-bold text-white">
                           {movie.show.name}
                         </p>
                       </div>
@@ -70,8 +73,10 @@ function Home() {
 
           <div className="filter-container"></div>
           <div className="m-10 cards-container">
-            <h2 className="mb-10 text-2xl">Recommended movies</h2>
-            <div className="flex flex-wrap gap-x-4 gap-y-6">
+            <h2 className="mb-10 text-2xl font-bold text-b4">
+              Recommended movies
+            </h2>
+            <div className="flex flex-wrap gap-x-8 gap-y-10">
               {movieList.map((movie) => {
                 return (
                   <Link to={`bookmovie/${movie.show.id}`}>
@@ -81,10 +86,14 @@ function Home() {
                         alt="movie poster"
                         className="rounded-lg"
                       />
-                      <p>{movie.show.name}</p>
-                      <div className="text-g4">
+                      <p className="my-4">{movie.show.name}</p>
+                      <div className="text-g4 ">
                         {movie.show.genres.map((genre) => {
-                          return <span>{genre}/</span>;
+                          return (
+                            <span className="p-1 mr-2 rounded-lg bg-g1">
+                              {genre}
+                            </span>
+                          );
                         })}
                       </div>
                     </div>
