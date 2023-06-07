@@ -1,39 +1,24 @@
-.image-banner {
-  backdrop-filter: blur(50px);
-  background-position: center;
-  background-image: url("https://static.tvmaze.com/uploads/images/original_untouched/425/1064746.jpg");
-  /* background-image: "https://static.tvmaze.com/uploads/images/original_untouched/425/1064746.jpg"; */
-}
-.modal {
-  font-size: 12px;
-}
-.modal > .header {
+/* 
+////swiper */
+.swiper {
   width: 100%;
-  border-bottom: 1px solid gray;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
   font-size: 18px;
-  text-align: center;
-  padding: 5px;
+  background: #a5d7e8;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.modal > .content {
-  width: 100%;
-  padding: 10px 5px;
-}
-.modal > .actions {
-  width: 100%;
-  padding: 10px 5px;
-  margin: auto;
-  text-align: center;
-}
-.modal > .close {
-  cursor: pointer;
-  position: absolute;
+
+/* .swiper-slide img {
   display: block;
-  padding: 2px 5px;
-  line-height: 20px;
-  right: -10px;
-  top: -10px;
-  font-size: 24px;
-  background: #ffffff;
-  border-radius: 18px;
-  border: 1px solid #cfcece;
-}
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+} */
