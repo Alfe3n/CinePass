@@ -28,17 +28,14 @@ function Bookmovie() {
         <div className="content-container">
           <div
             className="image-banner"
-            style={
-              {
-                background: `url(${movie.image.original})`,
-              }
-              //   { filter: "blur(8px)" })
-            }
+            style={{
+              background: `url(${movie.image.original})`,
+            }}
           >
             <div className="flex items-center justify-start md:gap-x-16">
               <img
                 src={movie.image.medium}
-                className="z-10 p-4 md:p-16 rounded-xl"
+                className="z-10 md:p-16 rounded-xl"
               ></img>
               <div className="z-10 flex flex-col text-white gap-y-4">
                 <p className="text-xl font-extrabold md:text-4xl text-b2">
@@ -71,7 +68,7 @@ function Bookmovie() {
                   {(close) => (
                     <div className="w-full bg-white modal">
                       <div className="mt-4 text-center content">
-                        <p className="text-3xl font-bold text-b4">
+                        <p className="text-lg font-bold md:text-3xl text-b4">
                           Book your Show!!!
                         </p>
                         <div className="flex flex-col p-8 gap-y-6">
@@ -80,11 +77,11 @@ function Bookmovie() {
                               type="text"
                               value={movie.name}
                               disabled
-                              className="text-xl font-bold text-b3"
+                              className="text-lg font-bold bg-white md:xl text-b3"
                             ></input>
                           </form>
                           <div className="flex justify-between">
-                            <p className="font-medium text-b3">
+                            <p className="text-lg font-medium text-b3">
                               No of Tickets:
                             </p>
                             <div className="flex gap-x-3">
@@ -96,9 +93,7 @@ function Bookmovie() {
                               >
                                 {<AiFillMinusCircle />}
                               </button>
-                              <p className="text-2xl font-semibold">
-                                {ticketCount}
-                              </p>
+                              <p className="text-2xl">{ticketCount}</p>
                               <button
                                 onClick={() => setTicketCount(ticketCount + 1)}
                               >
@@ -106,7 +101,9 @@ function Bookmovie() {
                               </button>
                             </div>
                           </div>
-                          <p>{`Total Amount: Rs ${ticketCount * 100}`}</p>
+                          <p className="text-lg font-bold">{`Total Amount: Rs ${
+                            ticketCount * 100
+                          }`}</p>
 
                           <button
                             onClick={() => close()}

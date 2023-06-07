@@ -56,7 +56,7 @@ function Home() {
                           src={movie.show.image.medium}
                           className="z-10 p-4 md:p-16"
                         ></img>
-                        <p className="z-10 text-2xl font-bold text-white md:text-6xl">
+                        <p className="z-10 text-2xl font-bold text-white sm:text-4xl md:text-6xl md:font-extrabold">
                           {movie.show.name}
                         </p>
                       </div>
@@ -73,7 +73,7 @@ function Home() {
 
           <div className="filter-container"></div>
           <div className="mx-4 cards-container">
-            <h2 className="my-10 text-2xl font-bold text-b4">
+            <h2 className="my-10 text-2xl font-bold text-b4 sm:text-3xl md:text-4xl">
               Recommended movies
             </h2>
             <div className="flex flex-col items-center mb-12 sm:flex sm:flex-row sm:flex-wrap sm:gap-x-8 gap-y-10">
@@ -86,7 +86,9 @@ function Home() {
                         alt="movie poster"
                         className="rounded-lg"
                       />
-                      <p className="my-4">{movie.show.name}</p>
+                      <p className="my-4 md:font-semibold md:text-lg">
+                        {movie.show.name}
+                      </p>
                       <div className="text-g4 ">
                         {movie.show.genres.map((genre) => {
                           return (
