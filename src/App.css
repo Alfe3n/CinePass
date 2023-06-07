@@ -40,3 +40,9 @@
     0.9
   ); /* Change the color and opacity as needed */
 }
+
+.popup-content {
+  border-radius: 2%;
+  width: 70% !important;
+  border: none !important;
+}

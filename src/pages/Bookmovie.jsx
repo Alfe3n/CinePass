@@ -4,7 +4,7 @@ import axios from "axios";
 import PulseLoader from "react-spinners/PulseLoader";
 import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
-
+import { AiFillPlusCircle, AiFillMinusCircle } from "react-icons/ai";
 function Bookmovie() {
   let { id } = useParams();
   const [movie, setMovie] = useState(null);
@@ -67,53 +67,54 @@ function Bookmovie() {
                   }
                   modal
                   nested
-                  className="bg-g4"
                 >
                   {(close) => (
-                    <div className="bg-b4">
-                      <div className="mt-4 text-center">Book you Show!!!</div>
-                      <div className="flex flex-col p-8 gap-y-6">
-                        <form className="flex">
-                          <input
-                            type="text"
-                            value={movie.name}
-                            disabled
-                            className="bg-red-500 "
-                          ></input>
-                          {/* <input
-                            type="text"
-                            value={movie.language}
-                            disabled
-                            className="bg-transparent"
-                          ></input> */}
-                        </form>
-                        <div className="flex justify-between">
-                          <p>No of Tickets:</p>
-                          <div className="flex">
-                            <button
-                              onClick={() => {
-                                if (ticketCount != 0)
-                                  setTicketCount(ticketCount - 1);
-                              }}
-                            >
-                              -
-                            </button>
-                            {ticketCount}
-                            <button
-                              onClick={() => setTicketCount(ticketCount + 1)}
-                            >
-                              +
-                            </button>
+                    <div className="w-full bg-white modal">
+                      <div className="mt-4 text-center content">
+                        <p className="text-3xl font-bold text-b4">
+                          Book your Show!!!
+                        </p>
+                        <div className="flex flex-col p-8 gap-y-6">
+                          <form className="flex justify-between">
+                            <input
+                              type="text"
+                              value={movie.name}
+                              disabled
+                              className="text-xl font-bold text-b3"
+                            ></input>
+                          </form>
+                          <div className="flex justify-between">
+                            <p className="font-medium text-b3">
+                              No of Tickets:
+                            </p>
+                            <div className="flex gap-x-3">
+                              <button
+                                onClick={() => {
+                                  if (ticketCount != 0)
+                                    setTicketCount(ticketCount - 1);
+                                }}
+                              >
+                                {<AiFillMinusCircle />}
+                              </button>
+                              <p className="text-2xl font-semibold">
+                                {ticketCount}
+                              </p>
+                              <button
+                                onClick={() => setTicketCount(ticketCount + 1)}
+                              >
+                                {<AiFillPlusCircle />}
+                              </button>
+                            </div>
                           </div>
-                        </div>
-                        <p>{`Total Amount:${ticketCount * 100}`}</p>
+                          <p>{`Total Amount: Rs ${ticketCount * 100}`}</p>
 
-                        <button
-                          onClick={() => close()}
-                          className="p-4 text-center rounded-lg bg-b3 text-b1"
-                        >
-                          Book Tickets
-                        </button>
+                          <button
+                            onClick={() => close()}
+                            className="p-4 text-center rounded-lg bg-b3 text-b1"
+                          >
+                            Book Tickets
+                          </button>
+                        </div>
                       </div>
                     </div>
                   )}

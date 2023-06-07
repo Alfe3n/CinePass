@@ -72,11 +72,11 @@ function Home() {
           )}
 
           <div className="filter-container"></div>
-          <div className="cards-container">
+          <div className="mx-4 cards-container">
             <h2 className="my-10 text-2xl font-bold text-b4">
               Recommended movies
             </h2>
-            <div className="flex flex-col items-center mb-12 bg-red-500 sm:flex sm:flex-wrap sm:gap-x-8 gap-y-10">
+            <div className="flex flex-col items-center mb-12 sm:flex sm:flex-row sm:flex-wrap sm:gap-x-8 gap-y-10">
               {movieList.map((movie) => {
                 return (
                   <Link to={`bookmovie/${movie.show.id}`}>
