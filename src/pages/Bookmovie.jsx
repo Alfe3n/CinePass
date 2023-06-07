@@ -45,7 +45,7 @@ function Bookmovie() {
                   {movie.language}
                 </p>
                 <p className="font-semibold text-b2">{`Ratings:${movie.rating.average}`}</p>
-                <div className="text-b2">
+                <div className="flex flex-wrap text-b2 gap-y-2">
                   {movie.genres.map((genre) => {
                     return (
                       <span className="p-1 mr-1 text-sm rounded-lg bg-g1">
