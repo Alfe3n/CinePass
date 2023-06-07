@@ -20,7 +20,6 @@ function Bookmovie() {
       .catch((error) => {
         console.error(error);
       });
-    // console.log(movie);
   }, []);
   console.log(ticketCount);
   return (
@@ -36,37 +35,42 @@ function Bookmovie() {
               //   { filter: "blur(8px)" })
             }
           >
-            <div className="flex items-center justify-start gap-x-16">
+            <div className="flex items-center justify-start md:gap-x-16">
               <img
                 src={movie.image.medium}
-                className="z-10 p-16 rounded-xl"
+                className="z-10 p-4 md:p-16 rounded-xl"
               ></img>
               <div className="z-10 flex flex-col text-white gap-y-4">
-                <p className="text-4xl font-bold text-b4">{movie.name}</p>
-                <p className="z-10 text-xl font-semibold text-b3">
+                <p className="text-xl font-extrabold md:text-4xl text-b2">
+                  {movie.name}
+                </p>
+                <p className="z-10 text-lg font-semibold text-b2">
                   {movie.language}
                 </p>
-                <p className="font-semibold text-b3">{`Ratings:${movie.rating.average}`}</p>
+                <p className="font-semibold text-b2">{`Ratings:${movie.rating.average}`}</p>
                 <div className="text-b2">
                   {movie.genres.map((genre) => {
                     return (
-                      <span className="p-1 ml-2 rounded-lg bg-g1">{genre}</span>
+                      <span className="p-1 mr-1 text-sm rounded-lg bg-g1">
+                        {genre}
+                      </span>
                     );
                   })}
                 </div>
 
                 <Popup
                   trigger={
-                    <button className="p-2 rounded-lg bg-b1 text-b4">
+                    <button className="p-1 rounded-lg md:p-2 bg-b1 text-b4">
                       {" "}
                       Book Tickets
                     </button>
                   }
                   modal
                   nested
+                  className="bg-g4"
                 >
                   {(close) => (
-                    <div>
+                    <div className="bg-b4">
                       <div className="mt-4 text-center">Book you Show!!!</div>
                       <div className="flex flex-col p-8 gap-y-6">
                         <form className="flex">
@@ -74,31 +78,33 @@ function Bookmovie() {
                             type="text"
                             value={movie.name}
                             disabled
-                            className="bg-transparent"
+                            className="bg-red-500 "
                           ></input>
-                          <input
+                          {/* <input
                             type="text"
                             value={movie.language}
                             disabled
                             className="bg-transparent"
-                          ></input>
+                          ></input> */}
                         </form>
                         <div className="flex justify-between">
                           <p>No of Tickets:</p>
-                          <button
-                            onClick={() => {
-                              if (ticketCount != 0)
-                                setTicketCount(ticketCount - 1);
-                            }}
-                          >
-                            -
-                          </button>
-                          {ticketCount}
-                          <button
-                            onClick={() => setTicketCount(ticketCount + 1)}
-                          >
-                            +
-                          </button>
+                          <div className="flex">
+                            <button
+                              onClick={() => {
+                                if (ticketCount != 0)
+                                  setTicketCount(ticketCount - 1);
+                              }}
+                            >
+                              -
+                            </button>
+                            {ticketCount}
+                            <button
+                              onClick={() => setTicketCount(ticketCount + 1)}
+                            >
+                              +
+                            </button>
+                          </div>
                         </div>
                         <p>{`Total Amount:${ticketCount * 100}`}</p>
 
@@ -116,9 +122,7 @@ function Bookmovie() {
             </div>
           </div>
           <div className="m-12">
-            <h2 className="mb-6 text-xl font-extrabold text-b4">
-              About the movie
-            </h2>
+            <h2 className="mb-6 text-xl font-bold text-b4">About the movie</h2>
             <div
               className="leading-relaxed tracking-wide text-b3"
               dangerouslySetInnerHTML={{ __html: movie.summary }}

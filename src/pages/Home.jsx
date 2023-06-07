@@ -54,9 +54,9 @@ function Home() {
                       <div className="flex items-center justify-evenly ">
                         <img
                           src={movie.show.image.medium}
-                          className="z-10 p-16"
+                          className="z-10 p-4 md:p-16"
                         ></img>
-                        <p className="z-10 text-6xl font-bold text-white">
+                        <p className="z-10 text-2xl font-bold text-white md:text-6xl">
                           {movie.show.name}
                         </p>
                       </div>
@@ -72,11 +72,11 @@ function Home() {
           )}
 
           <div className="filter-container"></div>
-          <div className="m-10 cards-container">
-            <h2 className="mb-10 text-2xl font-bold text-b4">
+          <div className="cards-container">
+            <h2 className="my-10 text-2xl font-bold text-b4">
               Recommended movies
             </h2>
-            <div className="flex flex-wrap gap-x-8 gap-y-10">
+            <div className="flex flex-col items-center mb-12 bg-red-500 sm:flex sm:flex-wrap sm:gap-x-8 gap-y-10">
               {movieList.map((movie) => {
                 return (
                   <Link to={`bookmovie/${movie.show.id}`}>
